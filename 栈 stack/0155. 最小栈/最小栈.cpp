@@ -4,14 +4,12 @@ public:
     public:
     stack<int> data;
     stack<int> helper;
-    int lastElement;
     MinStack()
     {
 
     }
     void push(int x)
     {
-        //lastElement = x;
         data.push(x);
         if(helper.empty()||x<=helper.top()){
             helper.push(x);

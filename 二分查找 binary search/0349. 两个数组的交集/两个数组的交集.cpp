@@ -28,7 +28,7 @@ public:
             return intersectionOfTwoArrys(st2,st1);
         }
     }*/
-    unordered_set<int> u;
+    /*unordered_set<int> u;
     vector<int> res;
     for(int val: nums1)
     {
@@ -41,6 +41,16 @@ public:
         {
             res.push_back(val);
             u.erase(a);
+        }
+    }
+    return res;*/
+    unordered_set<int> u(nums1.begin(),nums1.end());
+    vector<int> res;
+    for(int val:nums2)
+    {
+        if(u.erase(val))
+        {
+            res.push_back(val);
         }
     }
     return res;

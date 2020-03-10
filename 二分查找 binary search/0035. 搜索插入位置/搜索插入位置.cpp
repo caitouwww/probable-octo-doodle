@@ -1,4 +1,4 @@
-//https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/
+//²Î¿¼£ºhttps://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) 

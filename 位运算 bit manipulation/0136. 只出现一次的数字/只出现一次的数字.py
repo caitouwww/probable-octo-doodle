@@ -20,6 +20,7 @@
 """
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
+		'''
         if nums is None:
             return None
         elif len(nums)==1:
@@ -39,3 +40,58 @@ class Solution:
                     return nums[i]
 
             return nums[l-1]
+		'''
+'''列表操作
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        no_duplicate_list = []
+        for i in nums:
+            if i not in no_duplicate_list:
+                no_duplicate_list.append(i)
+            else:
+                no_duplicate_list.remove(i)
+        return no_duplicate_list.pop()
+'''
+
+'''哈希表
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        hash_table = {}
+        for i in nums:
+            try:
+                hash_table.pop(i)
+            except:
+                hash_table[i] = 1
+        return hash_table.popitem()[0]
+'''
+
+'''数学
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        return 2 * sum(set(nums)) - sum(nums)
+'''
+
+'''位操作
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        a = 0
+        for i in nums:
+            a ^= i
+        return a
+'''

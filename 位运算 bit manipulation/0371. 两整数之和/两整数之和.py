@@ -24,3 +24,14 @@ class Solution:
             a = (a ^ b) % MASK
             b = carry % MASK
         return a if a <=MAX_INT else ~((a % MIN_INT) ^ MAX_INT)
+		
+		
+class Solution:
+    def getSum(self, a: int, b: int) -> int:
+        a&=0xffffffff
+        b&=0xffffffff
+        while b:
+            carry = a & b
+            a ^= b
+            b= (carry<<1) & 0xffffffff
+        return a if a < 0x80000000 else ~(a^0xffffffff)

@@ -14,6 +14,7 @@ for(int j=0;j<=9;++j)        //找到上一次递归中的pos，避免重复
         max=j;
 if(pos>max)
 */
+//参见专栏https://zhuanlan.zhihu.com/p/93530380
 class Solution
 {
 public:

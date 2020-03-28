@@ -12,7 +12,7 @@ public:
     //vector<string> vec;
     //string path;
     vector<string> binaryTreePaths(TreeNode* root) {
-        //??
+        //递归
         /*if(!root)
             return vec;
         if(!root->left&&!root->right)
@@ -28,7 +28,7 @@ public:
         binaryTreePaths(root->right);
         path=path2;
         return vec;*/
-        //???,???
+        //栈实现，非递归
         /*vector<string> ans;
         if(root==NULL) return ans;
         TreeNode* p=root;
@@ -50,7 +50,7 @@ public:
             p=p->right;
         }
         return ans;*/
-        //??
+        //迭代
         vector<string> res;
         if(root==NULL)
             return res;

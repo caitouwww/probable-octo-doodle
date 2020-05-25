@@ -47,3 +47,64 @@ public:
 // 因此，我们每次都从中间结果少的那一端出发，这样就能剪枝掉很多不必要的搜索过程。
 
 // 以下优化结果16ms。
+
+
+/*
+ * @lc app=leetcode.cn id=127 lang=cpp
+ *
+ * [127] 单词接龙
+ */
+
+// @lc code=start
+#include <iostream>
+#include <string>
+#include <vector>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+using namespace std;
+class Solution {
+public:
+    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
+        unordered_multimap<string, string> dict;
+        unordered_set<string> memo;
+        bool isValid = false;
+        for(auto& word : wordList){
+            if(word == endWord) isValid = true;
+            string str = word;
+            for(int i = 0; i < word.size(); i++){
+                str[i] = '*';
+                dict.emplace(str, word);
+                str[i] = word[i];
+            }
+        }
+        if(!isValid)    return 0;
+        queue<string> q;
+        q.push(beginWord);
+        int step = 1;
+        while(!q.empty()){
+            step++;
+            int len = q.size();
+            while(len--){
+                string cur = q.front();
+                q.pop();
+                for(int i = 0; i < cur.size(); i++){
+                    char tmp = cur[i];
+                    cur[i] = '*';
+                    auto range = dict.equal_range(cur);
+                    for(auto iter = range.first; iter != range.second; iter++){
+                        if(memo.count(iter->second) == 0){
+                            if(iter->second == endWord) return step;
+                            q.push(iter->second);
+                            memo.emplace(iter->second);
+                        }
+                    }
+                    cur[i] = tmp;
+                }
+            }
+        }
+        return 0;
+    }
+};
+// @lc code=end
+

@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     string PrintMinNumber(vector<int> numbers) {
@@ -17,3 +19,10 @@ private:
         return a + b < b + a;
     }
 };
+int main(){
+    Solution s = Solution();
+    vector<int> v = {23,2};
+    int res = s.PrintMinNumber(v);
+    cout << res << endl;
+    return 0;
+}

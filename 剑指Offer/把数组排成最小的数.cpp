@@ -22,7 +22,7 @@ private:
 int main(){
     Solution s = Solution();
     vector<int> v = {23,2};
-    int res = s.PrintMinNumber(v);
+    string res = s.PrintMinNumber(v);
     cout << res << endl;
     return 0;
 }
